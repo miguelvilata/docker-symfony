@@ -2,7 +2,10 @@
 
 This is a project to create a symfony 4/5 project using a docker configuration environment.
 
-# Start docker containers
+# Clone the project
+git clone git@github.com:miguelvilata/docker-symfony.git
+
+# Move to the cloned project
 docker-compose -f docker/docker-compose.yml up -d --build
 
 # Stop container
@@ -22,4 +25,5 @@ symfony new my_project_name --version=lts
 
 #Create a project using a symfony specific version
 symfony new my_project_name --version=4.4
+
 > **ProTip:** symfony check:requirements.
