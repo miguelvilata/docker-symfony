@@ -1,0 +1,5 @@
+FROM kibana:7.5.1
+
+ENV ELASTICSEARCH_URL=http://elasticsearch:9200
+
+EXPOSE "5601:5601"

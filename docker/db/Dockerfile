@@ -1,0 +1,3 @@
+FROM mysql:5.6.46
+
+EXPOSE "6666:3306"
