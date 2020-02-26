@@ -1,15 +1,19 @@
-# Install (https://stackedit.io/app#)
+# General
 
 This is a project to create a symfony 4/5 project using a docker configuration environment.
 
-# Clone the project
+# Installation
 git clone git@github.com:miguelvilata/docker-symfony.git
 
-# Move to the cloned project
+# Move to the cloned project && build
+cd docker-symfony
 docker-compose -f docker/docker-compose.yml up -d --build
 
 # Stop container
 docker-compose -f docker/docker-compose.yml down
+
+# To access containerized project go to
+http://localhost:8080
 
 # Create a symfony project
 docker exec -it docker_docker-php-cli_1 bash
@@ -27,3 +31,7 @@ symfony new my_project_name --version=lts
 symfony new my_project_name --version=4.4
 
 > **ProTip:** symfony check:requirements.
+
+Todo: 
+  - Enable debug by command params
+  - Allow s
