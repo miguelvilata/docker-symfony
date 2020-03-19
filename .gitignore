@@ -72,4 +72,5 @@
 # Docker volumes
 app/docker-volume/**/*
 app/docker-volume
+.env
 

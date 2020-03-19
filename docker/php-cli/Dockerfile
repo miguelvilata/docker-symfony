@@ -24,14 +24,14 @@ RUN apt-get update && apt-get install -y default-mysql-client && rm -rf /var/lib
 RUN apt-get update && apt-get install -y vim nano
 
 # DEBUG
-RUN if [ $DEBUG = true ] ; then \
-    pecl install xdebug-2.6.0; \
-      docker-php-ext-enable xdebug; fi ;
+#RUN if [ $DEBUG = true ] ; then \
+#    pecl install xdebug-2.6.0; \
+#      docker-php-ext-enable xdebug; fi ;
 
 COPY "./ini/php.ini-development" "/usr/local/etc/php/php.ini"
-COPY "./ini/docker-php-ext-xdebug.ini" "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+#COPY "./ini/docker-php-ext-xdebug.ini" "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
 
-RUN echo "\nxdebug.remote_host="$REMOTE_HOST >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
+#RUN echo "\nxdebug.remote_host="$REMOTE_HOST >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
 
 RUN apt-get install -y git
 #RUN symfony self:update -y
