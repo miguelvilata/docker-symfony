@@ -12,7 +12,7 @@ RUN docker-php-ext-install pdo pdo_mysql \
     && docker-php-ext-install opcache
 
 RUN docker-php-ext-install pdo pdo_mysql
-RUN apt-get update && apt-get install -y vim nano
+RUN apt-get update && apt-get install -y vim
 
 RUN if [ $DEBUG = true ] ; then \
     pecl install xdebug-2.6.0; \

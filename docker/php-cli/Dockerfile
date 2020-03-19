@@ -34,5 +34,8 @@ COPY "./ini/docker-php-ext-xdebug.ini" "/usr/local/etc/php/conf.d/docker-php-ext
 RUN echo "\nxdebug.remote_host="$REMOTE_HOST >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
 
 RUN apt-get install -y git
-CMD /usr/local/bin/composer install -vvv
+#RUN symfony self:update -y
+#RUN symfony new symfony-project --full --version=4.4
+
+
 
