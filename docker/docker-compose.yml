@@ -17,8 +17,8 @@ services:
       context: ./php-cli/
       dockerfile: Dockerfile
       args:
-        - DEBUG=false
-        - REMOTE_HOST=127.0.0.1
+        - DEBUG=${DEBUG_PHP_CLI}
+        - REMOTE_HOST=${HOST_IP}
 
     # reserve a tty - otherwise the container shuts down immediately
     # corresponds to the "-i" flag
@@ -38,6 +38,9 @@ services:
       context: ./nginx
     # defines the port mapping
     # corresponds to the "-p" flag
+    depends_on:
+      - docker-php-fpm
+      - docker-php-cli
     ports:
       - "8080:80"
     tty: true
@@ -48,11 +51,14 @@ services:
       - web-network
 
   docker-php-fpm:
+    environment:
+      - DEBUG_PHP_FPM
+      - HOST_IP
     build:
       context: ./php-fpm
       args:
-        - DEBUG=false
-        - REMOTE_HOST=127.0.0.1
+        - DEBUG=${DEBUG_PHP_FPM}
+        - REMOTE_HOST=${HOST_IP}
     tty: true
     volumes:
       - ../:/var/www
