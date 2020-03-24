@@ -1,4 +1,9 @@
-index:
+product_web_index:
     path: /
     controller: App\Controller\ProductWebIndexController
     methods: GET
+
+product_web_create:
+    path: /product-create
+    controller: App\Controller\ProductWebCreateController
+    methods: [GET, POST]
